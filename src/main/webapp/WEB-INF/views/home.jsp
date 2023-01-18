@@ -11,4 +11,8 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>
+<a href="./departments">Departments List</a>
+<a href="./locations">Locations List</a>
+
+</body>
 </html>
