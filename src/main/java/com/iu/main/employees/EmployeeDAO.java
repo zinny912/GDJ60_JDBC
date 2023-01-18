@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.sql.Date;
 
-import javax.naming.spi.DirStateFactory.Result;
+
 
 import com.iu.main.util.DBConnection;
 
@@ -41,6 +42,8 @@ public class EmployeeDAO {
 			employeeDTO.setManager_id(rs.getInt("MANAGER_ID"));
 			
 			ar.add(employeeDTO);
+			
+				
 			
 		}
 		
@@ -89,8 +92,7 @@ public class EmployeeDAO {
 		return employeeDTO;
 		
 	}
-	
-	
+		
 	
 	//사원정보리스트
 	public ArrayList<EmployeeDTO> getList() throws Exception {
@@ -111,6 +113,7 @@ public class EmployeeDAO {
 			employeeDTO.setLast_name(rs.getString("LAST_NAME"));
 			employeeDTO.setJob_id(rs.getString("JOB_ID"));
 			employeeDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
+
 			
 			ar.add(employeeDTO);
 			
