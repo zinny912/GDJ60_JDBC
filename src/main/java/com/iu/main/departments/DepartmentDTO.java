@@ -13,7 +13,7 @@ public class DepartmentDTO {
 	// 접근지정자 private로 멤버변수 생성
 	private Integer department_id;
 	private String department_name;
-	private String manager_id;
+	private Integer manager_id;
 	private Integer location_id;
 	
 	//getter/setter 생성
@@ -29,10 +29,10 @@ public class DepartmentDTO {
 	public void setDepartment_name(String department_name) {
 		this.department_name = department_name;
 	}
-	public String getManager_id() {
+	public Integer getManager_id() {
 		return manager_id;
 	}
-	public void setManager_id(String manager_id) {
+	public void setManager_id(Integer manager_id) {
 		this.manager_id = manager_id;
 	}
 	public Integer getLocation_id() {
@@ -41,6 +41,8 @@ public class DepartmentDTO {
 	public void setLocation_id(Integer location_id) {
 		this.location_id = location_id;
 	}
+
+	
 	
 	
 	

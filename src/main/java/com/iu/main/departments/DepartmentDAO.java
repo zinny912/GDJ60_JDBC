@@ -8,8 +8,72 @@ import java.util.ArrayList;
 
 import com.iu.main.util.DBConnection;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 
 public class DepartmentDAO {
+	//update
+	public int updateData(DepartmentDTO departmentDTO)throws Exception{
+		Connection connection = DBConnection.getConnection();
+		
+		String sql = "UPDATE DEPARTMENTS SET DEPARTMENT_NAME=?, MANAGER_ID=?, LOCATION_ID=? "
+				+ "WHERE DEPARTMENT_ID=?";
+				
+		PreparedStatement st = connection.prepareStatement(sql);
+		
+		st.setString(1, departmentDTO.getDepartment_name());
+		st.setInt(2, departmentDTO.getManager_id());
+		st.setInt(3, departmentDTO.getLocation_id());
+		st.setInt(4, departmentDTO.getDepartment_id());
+		
+		int result = st.executeUpdate();
+		
+		DBConnection.disConnect(st, connection);
+		
+		return result;
+	}
+	
+	
+	
+	//delete
+	public int deleteData(DepartmentDTO departmentDTO) throws Exception {
+		Connection connection = DBConnection.getConnection();
+		String sql = "DELETE DEPARTMENTS WHERE DEPARTMENT_ID =?";
+		
+		PreparedStatement st = connection.prepareStatement(sql);
+		
+		st.setInt(1, departmentDTO.getDepartment_id());
+		
+		int result = st.executeUpdate();
+	
+		DBConnection.disConnect(st, connection);
+		
+		return result;
+	}
+	
+	
+	
+	//insert
+	public int setData(DepartmentDTO departmentDTO) throws Exception {
+		Connection connection = DBConnection.getConnection();
+		
+		String sql = "INSERT INTO DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID) "
+				+ "VALUES (DEPARTMENTS_SEQ.NEXTVAL, ?, ?, ?)";
+	
+		PreparedStatement st = connection.prepareStatement(sql);
+		
+		//물음표를 기준으로 3번째
+		st.setString(1, departmentDTO.getDepartment_name());
+		st.setInt(2, departmentDTO.getManager_id());
+		st.setInt(3, departmentDTO.getLocation_id());
+		
+		int result = st.executeUpdate();
+		
+		DBConnection.disConnect(st, connection);
+		
+		return result;
+	
+	}
 	
 	
 	public DepartmentDTO getDetail(int department_id) throws Exception{
@@ -28,7 +92,7 @@ public class DepartmentDAO {
 			departmentDTO = new DepartmentDTO();
 			departmentDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
 			departmentDTO.setDepartment_name(rs.getString("DEPARTMENT_NAME"));
-			departmentDTO.setManager_id(rs.getString("MANAGER_ID"));
+			departmentDTO.setManager_id(rs.getInt("MANAGER_ID"));
 			departmentDTO.setLocation_id(rs.getInt("LOCATION_ID"));
 			
 		}else {
@@ -63,7 +127,7 @@ public class DepartmentDAO {
 			DepartmentDTO departmentDTO = new DepartmentDTO();
 			departmentDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
 			departmentDTO.setDepartment_name(rs.getString("DEPARTMENT_NAME"));
-			departmentDTO.setManager_id(rs.getString("MANAGER_ID"));
+			departmentDTO.setManager_id(rs.getInt("MANAGER_ID"));
 			departmentDTO.setLocation_id(rs.getInt("LOCATION_ID"));
 			
 			ar.add(departmentDTO);
