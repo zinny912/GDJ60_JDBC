@@ -13,18 +13,21 @@ public class JDBCMain {
 
 	public static void main(String[] args) {
 		System.out.println("start");
-		DepartmentController dc = new DepartmentController();
-		LocationContoller lc = new LocationContoller();
-		EmployeeController ec = new EmployeeController();
-		DepartmentDAO departmentDAO = new DepartmentDAO();
-		LocationDAO locationDAO = new LocationDAO();
+		
+		FrontController fc = new FrontController();
+		
+//		DepartmentController dc = new DepartmentController();
+//		LocationContoller lc = new LocationContoller();
+//		EmployeeController ec = new EmployeeController();
+//		DepartmentDAO departmentDAO = new DepartmentDAO();
+//		LocationDAO locationDAO = new LocationDAO();
 		
 		try {
 						
 		//	dc.start();
 		//	lc.start();
-			ec.start();
-				
+		//	ec.start();
+			fc.start();
 			
 			
 			
