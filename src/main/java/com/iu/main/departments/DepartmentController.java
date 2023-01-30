@@ -79,7 +79,9 @@ public class DepartmentController {
 					departmentView.view("수정 실패");
 				}
 				break;
-			
+		
+				
+				
 			default:
 				check = false;
 			

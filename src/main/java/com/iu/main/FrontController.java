@@ -29,7 +29,7 @@ public class FrontController {
 			System.out.println("1. 부서 관리");
 			System.out.println("2. 지역 관리");
 			System.out.println("3. 사원 관리");
-			System.out.println("4. 종    료");
+			System.out.println("4. 종   료");
 			
 			int select = sc.nextInt();
 				

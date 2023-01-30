@@ -2,6 +2,8 @@ package com.iu.main.employees;
 
 import java.sql.Date;
 
+import com.iu.main.departments.DepartmentDTO;
+
 public class EmployeeDTO {
 	
 	private Integer employee_id;
@@ -16,7 +18,9 @@ public class EmployeeDTO {
 	private Integer manager_id;
 	private Integer department_id;
 	
-	
+	// 사원 하나에 부서 하나 일대일 관계
+	// private DepartmentDTO departmentDTO;
+	// 양방향관계, 단방향관계
 	
 	public Integer getEmployee_id() {
 		return employee_id;

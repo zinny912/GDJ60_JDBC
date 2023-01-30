@@ -14,6 +14,7 @@ public class DepartmentView {
 		System.out.println(departmentDTO.getDepartment_name());
 		System.out.println(departmentDTO.getManager_id());
 		System.out.println(departmentDTO.getLocation_id());
+		
 	}
 	
 	
